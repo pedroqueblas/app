@@ -1,0 +1,143 @@
+# HEMOPE Mobile App - Dependências e Requisitos
+
+## Requisitos do Sistema
+
+### Software Necessário
+- Node.js >= 16.0.0
+- npm >= 7.0.0 ou yarn >= 1.22.0
+- Git >= 2.0.0
+- Expo CLI (instalar globalmente)
+
+### Para Desenvolvimento Android
+- Android Studio
+- Android SDK (API Level 33 ou superior)
+- Android Emulator ou dispositivo físico com USB Debugging habilitado
+
+### Para Desenvolvimento iOS (apenas macOS)
+- Xcode >= 14.0
+- CocoaPods
+- iOS Simulator ou dispositivo físico
+
+## Dependências do Projeto (package.json)
+
+### Dependências Principais
+@react-navigation/native@^7.1.25
+@react-navigation/stack@^7.6.12
+expo@^51.0.0
+expo-status-bar@~1.12.1
+react@18.2.0
+react-native@0.74.5
+react-native-gesture-handler@~2.16.1
+react-native-reanimated@~3.10.1
+react-native-safe-area-context@4.10.5
+react-native-screens@~4.6.0
+
+## Instalação Passo a Passo
+
+### 1. Instalar Node.js
+Baixe e instale Node.js de: https://nodejs.org/
+Verifique a instalação:
+  node --version
+  npm --version
+
+### 2. Instalar Expo CLI Globalmente
+  npm install -g expo-cli
+ou
+  npm install -g @expo/cli
+
+### 3. Clonar o Repositório
+  git clone <url-do-repositório>
+  cd app-main
+
+### 4. Instalar Dependências do Projeto
+  npm install
+ou
+  yarn install
+
+### 5. Instalar Aplicativo Expo Go no Dispositivo Móvel (Opcional)
+- Android: Google Play Store - "Expo Go"
+- iOS: App Store - "Expo Go"
+
+### 6. Executar o Projeto
+  npm start
+ou
+  expo start
+
+## Comandos de Instalação Rápida
+
+### Instalação Completa (Linux/macOS)
+```bash
+# Instalar Node.js (usando nvm - recomendado)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+nvm install 18
+nvm use 18
+
+# Instalar Expo CLI
+npm install -g @expo/cli
+
+# Instalar dependências do projeto
+cd app-main
+npm install
+```
+
+### Instalação Completa (Windows)
+```powershell
+# Instalar Node.js manualmente de nodejs.org
+# Abrir PowerShell como Administrador
+
+# Instalar Expo CLI
+npm install -g @expo/cli
+
+# Navegar até o projeto
+cd app-main
+
+# Instalar dependências
+npm install
+```
+
+## Verificação de Instalação
+
+Execute os seguintes comandos para verificar se tudo está instalado corretamente:
+
+```bash
+node --version      # Deve retornar v16.x.x ou superior
+npm --version       # Deve retornar 7.x.x ou superior
+expo --version      # Deve retornar a versão do Expo CLI
+```
+
+## Notas Importantes
+
+1. O arquivo package.json já contém todas as dependências necessárias
+2. Execute 'npm install' para instalar automaticamente todas as dependências listadas
+3. Para desenvolvimento iOS, é necessário macOS e Xcode
+4. Para desenvolvimento Android, pode ser usado Windows, macOS ou Linux
+5. O Expo Go permite testar o app sem compilar nativamente
+
+## Problemas Comuns e Soluções
+
+### Erro: "expo: command not found"
+Solução: Instale o Expo CLI globalmente:
+  npm install -g @expo/cli
+
+### Erro: "Cannot find module"
+Solução: Reinstale as dependências:
+  rm -rf node_modules package-lock.json
+  npm install
+
+### Erro no Android: "SDK location not found"
+Solução: Configure a variável de ambiente ANDROID_HOME apontando para o SDK do Android
+
+### Erro no iOS: "CocoaPods not found"
+Solução: Instale o CocoaPods:
+  sudo gem install cocoapods
+
+## Versões Testadas
+
+- Node.js: 18.x.x
+- npm: 9.x.x
+- Expo: 51.0.0
+- React Native: 0.74.5
+- React: 18.2.0
+
+
+
