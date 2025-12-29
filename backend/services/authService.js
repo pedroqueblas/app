@@ -6,8 +6,9 @@ const Donor = require('../models/Donor');
 class AuthService {
   /**
    * Registrar novo usuário vinculado ao código do doador
+   * Opcionalmente atualiza dados do doador com informações enviadas no cadastro.
    */
-  static async register(email, password, codigoDoador) {
+  static async register(email, password, codigoDoador, donorExtraData = {}) {
     // Validar se código do doador existe
     const donor = await Donor.findByCodigo(codigoDoador);
     if (!donor) {
@@ -24,6 +25,36 @@ class AuthService {
     const emailExists = await User.emailExists(email);
     if (emailExists) {
       throw new Error('Email já cadastrado');
+    }
+
+    // Atualizar dados do doador com informações adicionais (se enviadas)
+    const allowedFields = [
+      'nome_completo',
+      'tipo_sanguineo',
+      'data_nascimento',
+      'sexo',
+      'telefone',
+      'email',
+      'cpf',
+      'rg',
+      'endereco',
+      'cidade',
+      'estado',
+      'cep',
+    ];
+
+    const donorUpdateData = {};
+    allowedFields.forEach((field) => {
+      if (
+        Object.prototype.hasOwnProperty.call(donorExtraData, field) &&
+        donorExtraData[field]
+      ) {
+        donorUpdateData[field] = donorExtraData[field];
+      }
+    });
+
+    if (Object.keys(donorUpdateData).length > 0) {
+      await Donor.update(donor.id, donorUpdateData);
     }
 
     // Hash da senha
@@ -138,6 +169,7 @@ class AuthService {
 }
 
 module.exports = AuthService;
+
 
 
 

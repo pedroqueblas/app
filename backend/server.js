@@ -14,6 +14,7 @@ const { notFound } = require('./middlewares/notFound');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
+const donorRoutes = require('./routes/donorRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -90,6 +91,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/donors', donorRoutes);
 
 // Middleware de erro 404
 app.use(notFound);
@@ -105,6 +107,7 @@ app.listen(PORT, () => {
 });
 
 module.exports = app;
+
 
 
 

@@ -2,10 +2,14 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import LoginScreen from './screens/LoginScreen';
+import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
 import VirtualCardScreen from './screens/VirtualCardScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import LocationsScreen from './screens/LocationsScreen';
+import AgendamentoScreen from './screens/AgendamentoScreen';
 import SplashScreen from './screens/SplashScreen';
 
 const Stack = createStackNavigator();
@@ -33,9 +37,14 @@ export default function App() {
           options={{ headerShown: false }}
         />
         <Stack.Screen
+          name="SignUp"
+          component={SignUpScreen}
+          options={{ title: 'Criar conta' }}
+        />
+        <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Início' }}
+          options={{ title: 'Início', headerShown: false }}
         />
         <Stack.Screen
           name="VirtualCard"
@@ -46,6 +55,16 @@ export default function App() {
           name="Profile"
           component={ProfileScreen}
           options={{ title: 'Perfil' }}
+        />
+        <Stack.Screen
+          name="Locations"
+          component={LocationsScreen}
+          options={{ title: 'Hemocentros em PE' }}
+        />
+        <Stack.Screen
+          name="Agendamento"
+          component={AgendamentoScreen}
+          options={{ title: 'Agendar Doação' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

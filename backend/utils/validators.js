@@ -15,6 +15,17 @@ const registerSchema = Joi.object({
   codigo_doador: Joi.string().required().messages({
     'any.required': 'Código do doador é obrigatório',
   }),
+  nome_completo: Joi.string().optional(),
+  tipo_sanguineo: Joi.string().optional(),
+  data_nascimento: Joi.string().optional(),
+  sexo: Joi.string().optional(),
+  telefone: Joi.string().optional(),
+  cpf: Joi.string().optional(),
+  rg: Joi.string().optional(),
+  endereco: Joi.string().optional(),
+  cidade: Joi.string().optional(),
+  estado: Joi.string().optional(),
+  cep: Joi.string().optional(),
 });
 
 /**
@@ -60,6 +71,7 @@ module.exports = {
   loginSchema,
   validate,
 };
+
 
 
 

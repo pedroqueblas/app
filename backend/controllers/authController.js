@@ -71,9 +71,36 @@ class AuthController {
    */
   static async register(req, res, next) {
     try {
-      const { email, password, codigo_doador } = req.body;
+      const {
+        email,
+        password,
+        codigo_doador,
+        nome_completo,
+        tipo_sanguineo,
+        data_nascimento,
+        sexo,
+        telefone,
+        cpf,
+        rg,
+        endereco,
+        cidade,
+        estado,
+        cep,
+      } = req.body;
 
-      const result = await AuthService.register(email, password, codigo_doador);
+      const result = await AuthService.register(email, password, codigo_doador, {
+        nome_completo,
+        tipo_sanguineo,
+        data_nascimento,
+        sexo,
+        telefone,
+        cpf,
+        rg,
+        endereco,
+        cidade,
+        estado,
+        cep,
+      });
 
       res.status(201).json({
         success: true,
@@ -125,6 +152,7 @@ class AuthController {
 }
 
 module.exports = AuthController;
+
 
 
 
